@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load tags %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'lecture.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+    <div class="d-flex flex-row mt-4 justify-content-around">
+        <div class="ms-3 me-3">
+            <ul class="list-group" style="position: sticky; top: 2em;">
+                <a href="/learn" class="list-group-item pb-4 fs-4">Navigation</a>
+                {% for l in lectures %}
+                    {% if lecture == l %}
+                      <a class="list-group-item" style="background-color: #ddd">{{ lecture.title }}</a>
+                    {% endif %}
+                    {% if lecture != l %}
+                      <a href="/lecture/{{ l.id }}" class="list-group-item">{{ l.title }}</a>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="d-flex flex-column ms-2" style="max-width: 1500px; flex: 1;">
+            <div style="max-width: 700px;">
+                <h1 class="mb-2">{{ lecture.title }}</h1>
+                <p >{{ lecture.description }}</p>
+            </div>
+            <div class="d-flex flex-row">
+                <p id="examplesStart" style="width: 30vw;">This is the model we will be using in the examples below</p>
+                <div id="examplesImage" style="background-image: url('{{ examples.container.database_image.url }}')" class="example-image">
+                </div>
+            </div>
+            <div id="examplesContainer">
+                <h2 class="mt-5">Examples</h2>
+                {% for example in examples.objects %}
+                    <div class="pt-5"></div>
+                    <div class="example mb-5" style="width: 30vw;">
+                        <div style="position: relative;">
+                            <h3 class="fw-normal">Example {{ example.number }}: {{ example.title }}</h3>
+                            <h4 class="fw-normal fs-5">{{ example.description }}</h4>
+                        </div>
+                        <div style="position: relative;">
+                            <textarea class="d-flex font-monospace example-input">{{ example.code }}</textarea>
+                            <button class="btn btn-success example-button">Run</button>
+                        </div>
+                        <div class="example-output"></div>
+                    </div>
+                    {% if example.additional %}
+                        <div class="mb-4">
+                            <p class="fs-4">Additional information</p>
+                            <p class="fs-6">{{ example.additional }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        <div>
+                <h2 class="mt-5">Exercises</h2>
+                {% for exercise in exercises %}
+                    <div class="exercise mt-5">
+                        <div class="d-flex flex-row justify-content-between">
+                            <div style="max-width: 500px; position: relative;">
+                                <h3 class="fw-normal">Exercise {{ exercise.number }}: {{ exercise.title }}</h3>
+                                <h4 class="fw-normal fs-5">{{ exercise.description }}</h4>
+                                <i class="fa-solid fa-circle-check finished-check"></i>
+                                <button class="btn btn-secondary mb-2 mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    Show hint
+                                </button>
+                                <div class="collapse" id="collapseExample">
+                                  <div class="card card-body">
+                                    {{ exercise.hint }}
+                                  </div>
+                                </div>
+                            </div>
+                            <img src="{{ exercise.database_image.url }}" class="exercise-image img-fluid" />
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div style="position: relative;">
+                                <textarea class="d-flex font-monospace exercise-input">{{ exercise.placeholder }}</textarea>
+                                <button class="btn btn-success exercise-button">Run</button>
+                            </div>
+                            <div class="exercise-output"></div>
+                        </div>
+                    </div>
+                    <div style="height: 10em;"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.7.0/sql-wasm.js" integrity="sha512-vHGg41kMMVrI90EIvUSlrqyE0AOAzHJOxWSMZrv0FkSCLrRsXxfmDrSM/7ms3jINzUROn5OWAlWp+xx0tVdakw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'lecture.js' %}"></script>
+
+{% endblock %}

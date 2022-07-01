@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load tags %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mt-5">Welcome to Quela!</h1>
+        <div class="container px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div class="col-10 col-sm-8 col-lg-6 rounded-4" style="box-shadow: 3px 3px 10px 5px rgba(0,0,0,0.1)">
+                <img src="{% static 'naslovna1.png' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+              </div>
+              <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Learn and practise SQL</h1>
+                <p class="lead">
+                    Quela is an online learning system designed to
+                    help you improve your SQL skills - all within your
+                    browser. It covers almost every aspect of the
+                    SQL language organized into helpful sections.
+                    Learn at your own pace whenever it suits you.
+                </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                  <a href="/learn" type="button" class="btn rounded-pill btn-lg px-4 me-md-2" style="background-color: #83FED9">Start Learning</a>
+                </div>
+              </div>
+            </div>
+        </div>
+{#        <div class="container px-4 py-5 d-flex flex-row">#}
+{#            <div class="rounded-4" style="flex: 1; overflow: hidden; box-shadow: -3px 3px 10px 5px rgba(0,0,0,0.1)">#}
+{#                <img src="{% static 'naslovna1.png' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">#}
+{#              </div>#}
+{#            <div class="row flex-lg-row align-items-center" style="flex: 1;">#}
+{#              <div class="ms-5">#}
+{#                <h1 class="display-5 fw-bold lh-1 mb-3">Challenge yourself</h1>#}
+{#                <p class="lead">#}
+{#                    Every topic comes with exercises of varying#}
+{#levels of difficulty. Once you finished them all you can be confident in your abilities. Hints are always available when you need a bit of help.#}
+{#                </p>#}
+{#                <div class="d-grid gap-2 d-md-flex justify-content-md-start">#}
+{#                  <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Start Learning</button>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#        </div>#}
+
+    </div>
+{% endblock %}

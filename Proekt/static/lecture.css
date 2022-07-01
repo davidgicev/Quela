@@ -1,0 +1,131 @@
+.example {
+    position: relative;
+}
+
+.example-input {
+    width: 30vw;
+    height: 15vh;
+    border: none;
+    background-color: #eee;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    resize: none;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.example-output {
+    margin-top: 1em;
+    max-height: 24vh;
+    overflow: auto;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    display: flex;
+}
+
+.example-output > table {
+    font-size: 14px;
+}
+
+.example-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: none;
+    margin: 0.5em;
+    padding: 0.5em 1em;
+    border-radius: 10em 10em 5em 10em;
+    color: black;
+    background-color: #83FED9;
+}
+
+.example-error {
+    font-size: 1.2em;
+    color: darkred;
+    flex: 1;
+    padding: 1em;
+    background-color: pink;
+}
+
+.example-image {
+    height: 30vh;
+    width: 50vw;
+    flex: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    right: 0px;
+    z-index: 10;
+    transition: top 0.5s;
+}
+
+.exercise {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.exercise-input {
+    width: 30vw;
+    height: 30vh;
+    border: none;
+    background-color: #eee;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    resize: none;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.exercise-output {
+    flex: 1;
+    margin-top: 1em;
+    max-height: 30vh;
+    overflow: auto;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    display: flex;
+    margin-left: 1em;
+    margin-right: 5em;
+}
+
+.exercise-output > table {
+    font-size: 14px;
+}
+
+.exercise-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: none;
+    margin: 0.5em;
+    padding: 0.5em 1em;
+    border-radius: 10em 10em 5em 10em;
+    color: black;
+    background-color: #83FED9;
+}
+
+.exercise-error {
+    font-size: 1.2em;
+    color: darkred;
+    flex: 1;
+    padding: 1em;
+    background-color: pink;
+}
+
+.exercise-image {
+    flex: 1;
+    height: 35vh;
+    object-fit: contain;
+}
+
+.finished-check {
+    display: none;
+    position: absolute;
+    left: -1.8em;
+    top: 0em;
+    color: #2aac94;
+    padding: 0.2em;
+    font-size: 2em;
+}

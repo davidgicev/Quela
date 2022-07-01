@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load tags %}
+
+{% block styles %}
+    <style>
+        .finished-check {
+            {#display: none;#}
+            position: absolute;
+            left: -1.8em;
+            top: 0em;
+            color: #2aac94;
+            padding: 0.2em;
+            font-size: 2em;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-column">
+        <div class="d-flex align-items-stretch">
+            <div class="mt-5 d-flex align-items-center flex-column container" style="flex: 1;">
+                <div>
+                    <h1 class="mb-5">Lectures</h1>
+                    {% for lecture in lectures %}
+                        <div style="position: relative;">
+                            <i class="fa-solid fa-circle-check finished-check"></i>
+                            <a href="/lecture/{{ lecture.id }}" class="fs-3 text-black d-block mb-4">{{ lecture.title }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div style="flex: 1"></div>
+            <div style="position: fixed; top: 0; right:0; width: 50%; height: 100%; z-index: -1; background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGVhZiUyMHBhdHRlcm58ZW58MHx8MHx8&w=1000&q=80')">
+            </div>
+        </div>
+    </div>
+{% endblock %}
